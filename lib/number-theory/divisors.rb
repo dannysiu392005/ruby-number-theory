@@ -123,7 +123,7 @@ module NumberTheory
       res
     end 
 
- ##
+    ##
     # Returns true if a positive integer is square free;
     # returns false otherwise
     #
@@ -132,7 +132,7 @@ module NumberTheory
     # in the list of prime factors for 'n'
     #
     # == Example
-    #  >> Primes.square_free?(10)
+    #  >> Divisors.square_free?(10)
     #  => true
     #
     # The integer 1 is a special case since it is 
@@ -142,6 +142,26 @@ module NumberTheory
       return false if n <= 0
       (Primes.factor(n)).each_value { |value| return false if value >= 2 }
       true
+    end
+
+    ##
+    # Returns the greatest common divisor of a and b
+    # == Example
+    #  >> Divisors.euclidean_algo(20, 15) = 5
+    def self.euclidean_algo(a, b)
+      a = 0 - a if a < 0
+      b = 0 - b if b < 0
+      if a == 0 || b == 0
+        0
+      else
+        r = a - (a/b)*b
+        while r!=0 do
+          a = b
+          b = r
+          r = a - (a/b)*b
+        end
+        b
+      end
     end
     
   end

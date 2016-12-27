@@ -163,12 +163,18 @@ Follows a (nearly) complete list of the methods provided by the library.
 => 8
 ```
 
-*
-* Euler phi function
+* Sqaure free?
 ```ruby
 # Returns true for square-free integers
 >> Divisors.square_free?(3226340897)
 => true
+```
+
+* Euclidean Algorithm
+```ruby
+# Returns the greatest common divisors between two integers
+>> Divisors.euclidean_algo(20, 15)
+=> 5
 ```
 
 ### Utils
