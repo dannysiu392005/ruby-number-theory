@@ -177,6 +177,14 @@ Follows a (nearly) complete list of the methods provided by the library.
 => 5
 ```
 
+* Extended Euclidean Algorithm
+(You can refer to [Extended Euclidean Algorithm](https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm) for more information)
+```ruby
+# Returns the greatest common divisors between two integers and the corresponding Bézout coefficients
+>> Divisors.extended_euclidean_algo(20, 15)
+=> [5, 1, -1]
+```
+
 ### Utils
 
 * Modular inverse

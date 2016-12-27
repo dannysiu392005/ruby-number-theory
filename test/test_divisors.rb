@@ -65,4 +65,16 @@ class TestDivisors < Test::Unit::TestCase
     assert_equal 1078, Divisors.euclidean_algo(1160718174, 316258250)
   end
 
+  def test_extended_euclidean_algo
+    assert_equal [1, 1, 0], Divisors.extended_euclidean_algo(1, 2) # Trivial case
+    assert_equal [5, 1, -1], Divisors.extended_euclidean_algo(20, 15) # Trivial case
+    assert_equal [13, 0, 1], Divisors.extended_euclidean_algo(13, 13) # a = b
+    assert_equal [100, 0, 1], Divisors.extended_euclidean_algo(1000, 100) # one is a mulitple of the other
+    assert_equal [0, 0, 0], Divisors.extended_euclidean_algo(1000, 0) # one number is zero
+    assert_equal [1, -2, 1], Divisors.extended_euclidean_algo(-3, -7) # treat -ve numbers as +ve ones
+    assert_equal [1, -89, 44496], Divisors.extended_euclidean_algo(99991, 200) # with a prime number
+    assert_equal [1078, 144397, -529960], Divisors.extended_euclidean_algo(1160718174, 316258250)
+    assert_equal [1078, -529960, 144397], Divisors.extended_euclidean_algo(316258250, 1160718174)
+  end
+
 end
