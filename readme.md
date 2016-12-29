@@ -195,6 +195,21 @@ Follows a (nearly) complete list of the methods provided by the library.
 => [82, 210, 338, 466, 594, 722, 850, 978, 1106, 1234, 1362, 1490, 1618, 1746, 1874, 2002, 2130, 2258, 2386]
 ```
 
+* Chinese Remainder Theorem
+```ruby
+# Returns an integer d satifying the following simultaneous congruences
+# x ≡ r1 (mod m1)
+# x ≡ r2 (mod m2)
+# x ≡ r3 (mod m3)
+# and 0 <= d < m1*m2*m3
+>> Congruences.chinese_remainder_theorem([2, 3, 2], [3, 5, 7])
+=> 23
+#  the above solves the following simultaneous congruences
+#  x ≡ 2 (mod 3)
+#  x ≡ 3 (mod 5)
+#  x ≡ 2 (mod 7)
+```
+
 ### Utils
 
 * Modular inverse
