@@ -10,5 +10,6 @@ module NumberTheory
   require File.dirname(__FILE__) + '/number-theory/primes.rb'
   require File.dirname(__FILE__) + '/number-theory/divisors.rb'
   require File.dirname(__FILE__) + '/number-theory/utils.rb'
+  require File.dirname(__FILE__) + '/number-theory/congruences.rb'
 
 end

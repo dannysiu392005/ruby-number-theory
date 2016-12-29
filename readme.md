@@ -30,6 +30,7 @@ The library consist of three main modules:
 
 * **Primes**: with methods for primality test, factorization, ..
 * **Divisors**: with methods related to integer division
+* **Congruences**: with methods for linear congruence equation, ...
 * **Utils**: for various utility methods
 
 All of them are incapsulated into the main **NumberTheory** module, wich provide namespaces separation.
@@ -183,6 +184,15 @@ Follows a (nearly) complete list of the methods provided by the library.
 # Returns the greatest common divisors between two integers and the corresponding Bézout coefficients
 >> Divisors.extended_euclidean_algo(20, 15)
 => [5, 1, -1]
+```
+
+### Congruences
+
+* Linear Congruence Equation
+```ruby
+# Returns all the incongruent solutions to ax ≡ c (mod m) in ascending order
+>> Congruences.linear_congruences_solver(893, 266, 2432)
+=> [82, 210, 338, 466, 594, 722, 850, 978, 1106, 1234, 1362, 1490, 1618, 1746, 1874, 2002, 2130, 2258, 2386]
 ```
 
 ### Utils
