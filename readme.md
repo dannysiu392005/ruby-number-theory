@@ -30,6 +30,7 @@ The library consist of three main modules:
 
 * **Primes**: with methods for primality test, factorization, ..
 * **Divisors**: with methods related to integer division
+* **Congruences**: with methods for linear congruence equation, ...
 * **Utils**: for various utility methods
 
 All of them are incapsulated into the main **NumberTheory** module, wich provide namespaces separation.
@@ -163,12 +164,50 @@ Follows a (nearly) complete list of the methods provided by the library.
 => 8
 ```
 
-*
-* Euler phi function
+* Sqaure free?
 ```ruby
 # Returns true for square-free integers
 >> Divisors.square_free?(3226340897)
 => true
+```
+
+* Euclidean Algorithm
+```ruby
+# Returns the greatest common divisors between two integers
+>> Divisors.euclidean_algo(20, 15)
+=> 5
+```
+
+* Extended Euclidean Algorithm
+(You can refer to [Extended Euclidean Algorithm](https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm) for more information)
+```ruby
+# Returns the greatest common divisors between two integers and the corresponding Bézout coefficients
+>> Divisors.extended_euclidean_algo(20, 15)
+=> [5, 1, -1]
+```
+
+### Congruences
+
+* Linear Congruence Equation
+```ruby
+# Returns all the incongruent solutions to ax ≡ c (mod m) in ascending order
+>> Congruences.linear_congruences_solver(893, 266, 2432)
+=> [82, 210, 338, 466, 594, 722, 850, 978, 1106, 1234, 1362, 1490, 1618, 1746, 1874, 2002, 2130, 2258, 2386]
+```
+
+* Chinese Remainder Theorem
+```ruby
+# Returns an integer d satifying the following simultaneous congruences
+# x ≡ r1 (mod m1)
+# x ≡ r2 (mod m2)
+# x ≡ r3 (mod m3)
+# and 0 <= d < m1*m2*m3
+>> Congruences.chinese_remainder_theorem([2, 3, 2], [3, 5, 7])
+=> 23
+#  the above solves the following simultaneous congruences
+#  x ≡ 2 (mod 3)
+#  x ≡ 3 (mod 5)
+#  x ≡ 2 (mod 7)
 ```
 
 ### Utils

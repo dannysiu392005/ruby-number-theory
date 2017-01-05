@@ -123,7 +123,7 @@ module NumberTheory
       res
     end 
 
- ##
+    ##
     # Returns true if a positive integer is square free;
     # returns false otherwise
     #
@@ -132,7 +132,7 @@ module NumberTheory
     # in the list of prime factors for 'n'
     #
     # == Example
-    #  >> Primes.square_free?(10)
+    #  >> Divisors.square_free?(10)
     #  => true
     #
     # The integer 1 is a special case since it is 
@@ -142,6 +142,57 @@ module NumberTheory
       return false if n <= 0
       (Primes.factor(n)).each_value { |value| return false if value >= 2 }
       true
+    end
+
+    ##
+    # Returns the greatest common divisor of a and b
+    # == Example
+    #  >> Divisors.euclidean_algo(20, 15) = 5
+    def self.euclidean_algo(a, b)
+      a = 0 - a if a < 0
+      b = 0 - b if b < 0
+      if a == 0 || b == 0
+        0
+      else
+        r = a - (a/b)*b
+        while r!=0 do
+          a = b
+          b = r
+          r = a - (a/b)*b
+        end
+        b
+      end
+    end
+
+    ##
+    # Returns the greatest common divisor of a and b and the corresponding Bézout coefficients
+    # for ax + by = g where g is the greatest common divisor of a and b
+    # == Example
+    #  >> Divisors.extended_euclidean_algo(20, 15) = [5, 1, -1]
+    def self.extended_euclidean_algo(a, b)
+      a = 0 - a if a < 0
+      b = 0 - b if b < 0
+      if a == 0 || b == 0
+        [0, 0, 0]
+      else
+        r = a - (a/b)*b
+        s0 = 1;                 t0 = 0
+        s1 = 0;                 t1 = 1
+        s2 = s0 - (a/b)*s1;     t2 = t0 - (a/b)*t1
+        while r!=0 do
+          a = b
+          b = r
+          r = a - (a/b)*b
+          s0 = s1;              t0 = t1
+          s1 = s2;              t1 = t2
+          s2 = s0 - (a/b)*s1;   t2 = t0 - (a/b)*t1
+        end
+        ans = []
+        ans << b
+        ans << s1
+        ans << t1
+        ans
+      end
     end
     
   end
