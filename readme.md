@@ -15,7 +15,7 @@ sudo gem install number-theory
 
 You can also clone it with git
 ```
-git clone https://github.com/ALTree/ruby-number-theory.git
+git clone https://github.com/dannysiu392005/ruby-number-theory.git
 ```
 
 You will need to install the NArray gem, since number-theory requires it:
@@ -26,7 +26,7 @@ sudo gem install narray
 Usage
 -----
 
-The library consist of three main modules:
+The library consist of four main modules:
 
 * **Primes**: with methods for primality test, factorization, ..
 * **Divisors**: with methods related to integer division
@@ -247,6 +247,7 @@ Contributing
 ------------
 
 RubyNumberTheory is in **ALPHA STATUS**. Contributions are welcome!
+(It was maintained by [Alberto Donizetti](https://github.com/ALTree) before but now it is maintained by me)
 
 Here's some ideas (maybe also a roadmap for possible future versions of the library):
 
