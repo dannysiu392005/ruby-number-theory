@@ -1,12 +1,12 @@
 Gem::Specification.new do |s|
 
   s.name         = 'number-theory'
-  s.version      = '0.0.2'
+  s.version      = '1.0.0'
   s.summary      = "A Ruby Number Theory Library"
   s.description  = "A number theory library written in pure Ruby. Provides methods for primality test, factoring integers, and more."
   
- 	s.authors      = ['Alberto Donizetti']
-  s.email        = 'alb.donizett@gmail.com'
+ 	s.authors      = ['Alberto Donizetti', 'Danny Siu']
+  s.email        = 'dannysiu392005@gmail.com'
   
   s.files        = Dir['lib/**/*.rb'] + Dir['test/**/*.rb']
   s.platform     = Gem::Platform::RUBY
@@ -16,6 +16,6 @@ Gem::Specification.new do |s|
 	s.test_files   = Dir['test/**/*.rb']
 	s.add_dependency("narray", [">=0.6"])
 
-  s.homepage     = 'https://github.com/ALTree/ruby-number-theory'
+  s.homepage     = 'https://github.com/dannysiu392005/ruby-number-theory'
 
 end
