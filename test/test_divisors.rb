@@ -6,35 +6,35 @@ include NumberTheory
 class TestDivisors < Test::Unit::TestCase
 
   def test_divisors
-    assert_equal(Divisors.divisors(32), [1, 2, 4, 8, 16, 32])
-    assert_equal(Divisors.divisors(210), [1, 2, 3, 5, 6, 7, 10, 14, 15, 21, 30, 35, 42, 70, 105, 210])
+    assert_equal [1, 2, 4, 8, 16, 32], Divisors.divisors(32)
+    assert_equal [1, 2, 3, 5, 6, 7, 10, 14, 15, 21, 30, 35, 42, 70, 105, 210], Divisors.divisors(210)
   end
 
   def test_divcount
-    assert_equal(Divisors.divcount(210), 16)
-    assert_equal(Divisors.divcount(32000), 36)
-    assert_equal(Divisors.divcount(3861000), 256)
-    assert_equal(Divisors.divcount(4900265546530028103000), 12288)
+    assert_equal 16, Divisors.divcount(210)
+    assert_equal 36, Divisors.divcount(32000)
+    assert_equal 256, Divisors.divcount(3861000)
+    assert_equal 12288, Divisors.divcount(4900265546530028103000)
   end
 
   def test_multiplicity
-    assert_equal(Divisors.multiplicity(18, 2), 1)
-    assert_equal(Divisors.multiplicity(34992, 3), 7)
-    assert_equal(Divisors.multiplicity(8152454278732958496, 19), 11)
+    assert_equal 1, Divisors.multiplicity(18, 2)
+    assert_equal 7, Divisors.multiplicity(34992, 3)
+    assert_equal 11, Divisors.multiplicity(8152454278732958496, 19)
   end
 
   def test_divisor_sigma
-    assert_equal(Divisors.divisor_sigma(16,1), 31)
-    assert_equal(Divisors.divisor_sigma(20,2), 546)
-    assert_equal(Divisors.divisor_sigma(28,5), 17766056)
-    assert_equal(Divisors.divisor_sigma(15,7), 170939688)
+    assert_equal 31, Divisors.divisor_sigma(16,1)
+    assert_equal 546, Divisors.divisor_sigma(20,2)
+    assert_equal 17766056, Divisors.divisor_sigma(28,5)
+    assert_equal 170939688, Divisors.divisor_sigma(15,7)
   end
 
   def test_euler_phi
-    assert_equal(Divisors.euler_phi(12), 4)
-    assert_equal(Divisors.euler_phi(19), 18)
-    assert_equal(Divisors.euler_phi(25555), 19296)
-    assert_equal(Divisors.euler_phi(87654), 25032)
+    assert_equal 4, Divisors.euler_phi(12)
+    assert_equal 18, Divisors.euler_phi(19)
+    assert_equal 19296, Divisors.euler_phi(25555)
+    assert_equal 25032, Divisors.euler_phi(87654)
   end
 
   def test_perfect?
