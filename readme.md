@@ -197,7 +197,7 @@ Follows a (nearly) complete list of the methods provided by the library.
 
 * Chinese Remainder Theorem
 ```ruby
-# Returns an integer d satifying the following simultaneous congruences
+# Returns an integer d satisfying the following simultaneous congruences
 # x ≡ r1 (mod m1)
 # x ≡ r2 (mod m2)
 # x ≡ r3 (mod m3)
@@ -263,6 +263,6 @@ Lenstra's elliptic curve factorization method would be very nice.
 License
 ------------
 
-RubyNumberTheory is released under GNU General Public Licens (see LICENSE).
+RubyNumberTheory is released under GNU General Public License (see LICENSE).
 
 
