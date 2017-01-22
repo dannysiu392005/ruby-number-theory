@@ -77,4 +77,41 @@ class TestDivisors < Test::Unit::TestCase
     assert_equal [1078, -529960, 144397], Divisors.extended_euclidean_algo(316258250, 1160718174)
   end
 
+  def test_jacobi_symbol
+    exception = assert_raise(ArgumentError) { Divisors.jacobi_symbol(1, 2) }
+    assert_equal "2 is not a positive odd integer", exception.message
+    assert_raise(ArgumentError) { Divisors.jacobi_symbol(1, -7) }
+    assert_equal 0, Divisors.jacobi_symbol(5*403, 403)
+    assert_equal 1, Divisors.jacobi_symbol(1, 5)
+    assert_equal -1, Divisors.jacobi_symbol(-1, 9907)
+    assert_equal -1, Divisors.jacobi_symbol(2, 9907)
+    assert_equal -1, Divisors.jacobi_symbol(1001, 9907)
+    assert_equal 1, Divisors.jacobi_symbol(1, 1234567)
+    assert_equal -1, Divisors.jacobi_symbol(-1, 1234567)
+    assert_equal 1, Divisors.jacobi_symbol(2, 1234567)
+    assert_equal 1, Divisors.jacobi_symbol(10000, 1234567)
+    assert_equal 0, Divisors.jacobi_symbol(123456789, 1234567891011)
+    assert_equal -1, Divisors.jacobi_symbol(4852777, 12408107)
+    assert_equal 1, Divisors.jacobi_symbol(17327467, 48746413)
+  end
+
+  def test_legendre_symbol
+    exception = assert_raise(ArgumentError) { Divisors.legendre_symbol(1, 2) }
+    assert_equal "2 is not an odd prime", exception.message
+    exception = assert_raise(ArgumentError) { Divisors.legendre_symbol(1, 9) }
+    assert_equal "9 is not an odd prime", exception.message
+    exception = assert_raise(ArgumentError) { Divisors.legendre_symbol(1, -5) }
+    assert_equal "-5 is not an odd prime", exception.message
+    assert_equal -1, Divisors.legendre_symbol(-1, 11)
+    assert_equal -1, Divisors.legendre_symbol(2, 11)
+    assert_equal 1, Divisors.legendre_symbol(-1, 13)
+    assert_equal -1, Divisors.legendre_symbol(2, 13)
+    assert_equal 1, Divisors.legendre_symbol(2, 17)
+    assert_equal -1, Divisors.legendre_symbol(-1, 23)
+    assert_equal 1, Divisors.legendre_symbol(2, 23)
+    assert_equal 1, Divisors.legendre_symbol(-1, 9007199254740881)
+    assert_equal 1, Divisors.legendre_symbol(2, 9007199254740881)
+    assert_equal 1, Divisors.legendre_symbol(1882341361, 9007199254740881)
+  end
+
 end
