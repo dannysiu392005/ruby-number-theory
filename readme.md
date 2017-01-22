@@ -186,6 +186,22 @@ Follows a (nearly) complete list of the methods provided by the library.
 => [5, 1, -1]
 ```
 
+* Jacobi Symbol
+(You can refer to [Jacobi Symbol](https://en.wikipedia.org/wiki/Jacobi_symbol) for more information)
+```ruby
+# Returns -1, 0 or 1 (raise an exception when the second argument is not a positive odd integer)
+>> Divisors.jacobi_symbol(1001, 9907)
+=> -1
+```
+
+* Legendre Symbol
+(You can refer to [Legendre Symbol](https://en.wikipedia.org/wiki/Legendre_symbol) for more information)
+```ruby
+# Returns -1, 0 or 1 (raise an exception when the second argument is not an odd prime)
+>> Divisors.legendre_symbol(2, 23)
+=> 1
+```
+
 ### Congruences
 
 * Linear Congruence Equation
@@ -247,18 +263,18 @@ Contributing
 ------------
 
 RubyNumberTheory is in **ALPHA STATUS**. Contributions are welcome!
-(It was maintained by [Alberto Donizetti](https://github.com/ALTree) before but now it is maintained by me)
+(It was maintained by [Alberto Donizetti](https://github.com/ALTree) before but now it is maintained by me, [Danny Siu](https://github.com/dannysiu392005))
 
 Here's some ideas (maybe also a roadmap for possible future versions of the library):
 
 * **Extend / modify the factorization method to make it faster.** Currently implemented: trial division + Pollard's rho + Pollard's p-1, 
 Lenstra's elliptic curve factorization method would be very nice.
 
-* **Extend the Divisors Module**. Squares and square-free recognition, Legendre symbol, Jacobi symbol, Mobius function..
+* **Extend the Divisors Module**. Squares and square-free recognition, Mobius function...
 
-* **A Combinatorics Module**. Generator for partitions, permutations, ..
+* **A Combinatorics Module**. Generator for partitions, permutations, ...
 
-* **A Congruence Module**. Congruences solver, Chinese Remainder Theorem, ..
+* **A Congruence Module**...
 
 License
 ------------

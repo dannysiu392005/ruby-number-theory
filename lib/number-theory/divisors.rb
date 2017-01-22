@@ -194,6 +194,52 @@ module NumberTheory
         ans
       end
     end
+
+    def self.jacobi_symbol(a, n)
+      raise ArgumentError.new("#{n} is not a positive odd integer") if n < 0 || n%2 == 0
+      return 0 if a%n==0
+
+      numerator = a
+      denominator = n
+      product = 1
+
+      if numerator < 0
+        numerator*=(-1)
+        product*=(-1) if denominator%4==3
+      end
+
+      while numerator >= 2 do
+        tmpProduct = 1
+        while numerator%2==0 do
+          tmpProduct*=(-1)
+          numerator/=2
+        end
+
+        if tmpProduct==-1
+          r = denominator%8
+          product*=(-1) if r==3 || r==5
+        end
+
+        if numerator > 2
+          tmp = numerator
+          numerator = denominator
+          denominator = tmp
+          numerator = numerator % denominator if numerator > denominator
+          product*=(-1) if numerator%4==3 && denominator%4==3
+        end
+      end
+
+      if numerator == 0
+        0
+      else
+        product
+      end
+    end
+
+    def self.legendre_symbol(a, p)
+      raise ArgumentError.new("#{p} is not an odd prime") if p==2 || !Primes.prime?(p)
+      self.jacobi_symbol(a, p)
+    end
     
   end
 
