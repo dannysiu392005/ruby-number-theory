@@ -81,4 +81,14 @@ class TestPrimes < Test::Unit::TestCase
     assert_equal 2305567963945518424753102147331756070, Primes.primorial(25)
   end
 
+  def test_sieve
+    assert_equal Primes.method(:sieve_of_eratosthenes), Primes.method(:sieve)
+    assert_equal 4, Primes.sieve(10).count
+    assert_equal 8, Primes.sieve(20).count
+    assert_equal Primes.prevprime(1000), Primes.sieve(1000).last
+    assert_equal Array.new(168, true), Primes.sieve(1000).map { |num| Primes.prime?(num) }
+    assert_equal Primes.prevprime(10000), Primes.sieve(10000).last
+    assert_equal Primes.prevprime(1234567), Primes.sieve(1234567).last
+  end
+
 end
