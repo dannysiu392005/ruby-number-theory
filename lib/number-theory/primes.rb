@@ -395,6 +395,30 @@ module NumberTheory
       primes.inject {|a, b| a * b}
     end
 
+    ##
+    # Returns all primes <= n in an array
+    def self.sieve_of_eratosthenes(n)
+      sieve_array = Array.new(n, true)
+      sieve_array[0] = sieve_array[1] = false
+
+      i = 2
+      while i*i<=n do
+        if sieve_array[i]
+          k = i*i
+          while k <= n do
+            sieve_array[k] = false if sieve_array[k]
+            k+=i
+          end
+        end
+        i+=1
+      end
+
+      primes = []
+      sieve_array.each_with_index { |val, index| primes << index if val }
+      primes
+    end
+
+    singleton_class.send(:alias_method, :sieve, :sieve_of_eratosthenes)
   end
 
 end
